@@ -6,7 +6,7 @@
 :: http://livedocs.adobe.com/flex/3/html/distributing_apps_4.html#1037515
 
 :: Path to Flex SDK binaries
-set PATH=%PATH%;C:\flex_sdk_3\bin
+set PATH=%PATH%;C:\app\flex_sdk\bin
 
 :: Certificate information
 set NAME=SelfSigned

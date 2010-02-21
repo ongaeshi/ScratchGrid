@@ -5,7 +5,7 @@
 :: http://livedocs.adobe.com/flex/3/html/help.html?content=CommandLineTools_5.html#1035959
 
 :: Path to Flex SDK binaries
-set PATH=%PATH%;C:\flex_sdk_3\bin
+set PATH=%PATH%;C:\app\flex_sdk\bin
 
 :: Signature (see 'CreateCertificate.bat')
 set CERTIFICATE=SelfSigned.pfx
@@ -14,7 +14,7 @@ if not exist %CERTIFICATE% goto certificate
 
 :: Output
 if not exist air md air
-set AIR_FILE=air/InteractiveScript.air
+set AIR_FILE=air/ScratchGrid.air
 
 :: Input
 set APP_XML=application.xml 
