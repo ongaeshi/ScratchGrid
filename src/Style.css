@@ -1,0 +1,57 @@
+﻿Application {
+   backgroundColor: #CCCCCC;
+   backgroundAlpha: 1;
+   backgroundGradientColors: #CCCCCC, #CCCCCC;
+   backgroundGradientAlphas: 0, 0;
+}
+
+Button {
+  cornerRadius: 12;
+  paddingLeft: 3;
+  paddingRight: 3;
+  paddingTop: 3;
+  paddingBottom: 3;
+  borderColor: #333333;
+  themeColor: #0066cc;
+  fontSize: 12;
+}
+
+DataGrid {
+  borderColor: #000000;
+  fontSize: 12;
+  dropShadowEnabled: true;
+  shadowDistance: 0;
+  shadowDirection: center;
+}
+
+TextArea {
+  fontSize: 12;
+  fontWeight: normal;
+  paddingLeft: 3;
+  paddingRight: 3;
+  textIndent: 0;
+  backgroundAlpha: 1;
+  borderColor: #000000;
+  borderThickness: 1;
+  dropShadowEnabled: true;
+  shadowDistance: 0;
+  shadowDirection: center;
+}
+
+TextInput {
+  borderStyle: solid;
+  borderColor: #000000;
+  borderThickness: 1;
+  cornerRadius: 0;
+  color: #000000;
+  fontSize: 12;
+  dropShadowEnabled: true;
+  shadowDistance: 0;
+  shadowDirection: center;
+}
+
+CheckBox {
+  borderColor: #000000;
+  themeColor: #0066ff;
+  fontSize: 12;
+}

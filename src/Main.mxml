@@ -1,57 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<mx:Application layout="absolute" xmlns:mx="http://www.adobe.com/2006/mxml">
+<mx:Application 
+	layout="absolute" 
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	width="100%"
+	height="100%"
+	creationComplete="init()"
+	keyUp="inputKeyUp(event)"
+	enterFrame="enterFrame(event)"
+	>
 
-<mx:Script><![CDATA[
-	import mx.controls.dataGridClasses.DataGridColumn;
-	import r1.deval.D;
+	<mx:Style source="Style.css" />
+	<mx:Script source="Main.as" />
 
-	protected function showData(row:Object, col:DataGridColumn):String {
-		return String(D.eval(col.dataField, row));
-	}	
-]]></mx:Script>
+	<mx:VDividedBox width="100%" height="100%" paddingBottom="5" paddingLeft="5" paddingRight="5" paddingTop="5">
+		<mx:DataGrid id="Table" width="100%" height="100%"
+					 editable="true" sortableColumns="false" draggableColumns="false" 
+					 itemEditEnd="itemEditEnd(event)">
+			<mx:columns>
+				<mx:DataGridColumn></mx:DataGridColumn>
+				<mx:DataGridColumn></mx:DataGridColumn>
+				<mx:DataGridColumn></mx:DataGridColumn>
+				<mx:DataGridColumn></mx:DataGridColumn>
+				<mx:DataGridColumn></mx:DataGridColumn>
+				<mx:DataGridColumn></mx:DataGridColumn>
+				<mx:DataGridColumn></mx:DataGridColumn>
+				<mx:DataGridColumn></mx:DataGridColumn>
+			</mx:columns>
+		</mx:DataGrid>
 
-	<mx:XML id="order">
-		<order>
-			<item id="1">
-				<menuName>burger</menuName>			
-				<criticalInfo>
-					<vegetarian>false</vegetarian>
-					<containsPeanuts>false</containsPeanuts>
-				</criticalInfo>
-				<salesInfo>
-					<quantity>3</quantity>
-					<price>3.95</price>
-				</salesInfo>
-			</item>
-			<item id="2">
-				<menuName>fries</menuName>
-				<criticalInfo>
-					<vegetarian>true</vegetarian>
-					<containsPeanuts>false</containsPeanuts>
-				</criticalInfo>
-				<salesInfo>
-					<quantity>4</quantity>
-					<price>1.45</price>
-				</salesInfo>
-			</item>
-		</order>
-	</mx:XML>
-
-	<mx:DataGrid dataProvider="{order.item}" width="450">
-		<mx:columns>
-			<mx:DataGridColumn headerText="Name"
-				dataField="menuName" labelFunction="showData"/>
-			<mx:DataGridColumn headerText="Vegetarian"
-				dataField="criticalInfo.vegetarian" labelFunction="showData"/>
-			<mx:DataGridColumn headerText="Peanuts"
-				dataField="criticalInfo.containsPeanuts" labelFunction="showData"/>
-			<mx:DataGridColumn headerText="Quantity"
-				dataField="salesInfo.quantity" labelFunction="showData"/>
-			<mx:DataGridColumn headerText="Price"
-				dataField="salesInfo.price" labelFunction="showData"/>
-			<mx:DataGridColumn headerText="Line Total"
-				dataField="salesInfo.price * salesInfo.quantity" labelFunction="showData"/>
-		</mx:columns>
-	</mx:DataGrid>
-
+		<mx:HBox width="100%" height="100%">
+			<mx:TextArea id="SrcCode" width="100%" height="100%">
+				<mx:text><![CDATA[// ここにコードを書いて下さい
+x;]]></mx:text>
+			</mx:TextArea>
+			
+			<mx:VBox width="100%" height="100%">
+				<mx:HBox><mx:CheckBox selected="true" id="CheckBox1" change="checkBoxChange(event)" /><mx:TextInput text="x" id="TextInput1" change="updateDataGrid()" /></mx:HBox>
+				<mx:HBox><mx:CheckBox selected="false" id="CheckBox2" change="checkBoxChange(event)" /><mx:TextInput text="y" id="TextInput2" change="updateDataGrid()" /></mx:HBox>
+				<mx:HBox><mx:CheckBox selected="false" id="CheckBox3" change="checkBoxChange(event)" /><mx:TextInput text="z" id="TextInput3" change="updateDataGrid()" /></mx:HBox>
+				<mx:HBox><mx:CheckBox selected="false" id="CheckBox4" change="checkBoxChange(event)" /><mx:TextInput text="" id="TextInput4" change="updateDataGrid()" /></mx:HBox>
+				<mx:HBox><mx:CheckBox selected="false" id="CheckBox5" change="checkBoxChange(event)" /><mx:TextInput text="" id="TextInput5" change="updateDataGrid()" /></mx:HBox>
+				<mx:HBox><mx:CheckBox selected="false" id="CheckBox6" change="checkBoxChange(event)" /><mx:TextInput text="" id="TextInput6" change="updateDataGrid()" /></mx:HBox>
+				<mx:CheckBox selected="false" id="CheckBoxExpect" change="updateDataGrid()" label="Expect" />
+				<mx:CheckBox selected="true" id="CheckBoxAutoRun" label="Auto Run" />
+				<mx:Button label="Run (F5)" click="execScriptAndUpdate()"/>
+			</mx:VBox>
+		</mx:HBox>	
+	</mx:VDividedBox>
 </mx:Application>

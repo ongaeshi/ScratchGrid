@@ -6,8 +6,8 @@
     <movie input="" />
     <movie path="bin\InteractiveScript.swf" />
     <movie fps="30" />
-    <movie width="800" />
-    <movie height="600" />
+    <movie width="640" />
+    <movie height="550" />
     <movie version="9" />
     <movie background="#FFFFFF" />
   </output>
@@ -44,6 +44,7 @@
   <!-- SWC Libraries -->
   <libraryPaths>
     <element path="lib\D.eval-1.1.swc" />
+    <element path="lib\fl.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
