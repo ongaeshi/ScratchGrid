@@ -37,7 +37,14 @@
 		
 		static public function isEmptyName(x:Object):Boolean
 		{
-			return (x == null || x == "" || x == " ");
+			if (x == null)
+				return true;
+			else if (typeof x == "string") {
+				if (x == "" || x == " ")
+					return true;
+			}
+			
+			return false;
 		}
 		
 		static public function isValidName(x:Object):Boolean
