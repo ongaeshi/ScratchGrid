@@ -133,7 +133,7 @@ private function isAllVariableSet(vbl:Object):Boolean
 		if (flag) {
 			activeNum++;
 			
-			if (Lib.isValidName(vbl[t.dataField]))
+			if (!isEmptyVariableColumn(vbl, i))
 				setNum++;
 		}
 	}
@@ -154,7 +154,7 @@ private function setUnsetAttr(vbl:Object):void
 	for (var i:int = 0; i < VARIABLE_NUM; i++) {
 		var t:DataGridColumn = Table.columns[i];
 		
-		if (isActiveVariableColumn(t) && Lib.isEmptyName(vbl[t.dataField]))
+		if (isActiveVariableColumn(t) && isEmptyVariableColumn(vbl, i))
 			vbl.SCP_attribute[i].setUnsetBlink();
 	}
 }
@@ -166,7 +166,7 @@ private function context2variable(vbl:Object, context:Object, result:Object):voi
 	for (var i:int = 0; i < VARIABLE_NUM; i++) {
 		var t:DataGridColumn = Table.columns[i];
 		
-		if (isActiveVariableColumn(t) && !Lib.isEmptyName(context[t.dataField])) {
+		if (isActiveVariableColumn(t) && !isEmptyVariableColumn(context, i)) {
 			//trace(vbl[t.dataField], "<=", Lib.to_s(context[t.dataField]));
 			
 			next = Lib.to_s(context[t.dataField]);
@@ -200,7 +200,17 @@ private function updateIncorrect(vbl:Object):void
 
 private function isActiveVariableColumn(t:DataGridColumn):Boolean
 {
-	return t.dataField != "Expect" && t.dataField != "Result" && t.visible;
+	return t.dataField != "Expect" && 
+		   t.dataField != "Result" && 
+		   t.visible;
+}
+
+private function isEmptyVariableColumn(vbl:Object, index:int):Boolean
+{
+	var t:DataGridColumn = Table.columns[index];
+	
+	return Lib.isEmptyName(vbl[t.dataField]) &&
+		   !this["OutPutSetting" + (index + 1)].selected; 
 }
 
 private function inputKeyUp(e:KeyboardEvent):void 
@@ -258,9 +268,4 @@ private function newObject():Object
 	}
 	
 	return obj;
-}
-
-private function outPutSettingChange(e:Event):void 
-{
-	
 }
