@@ -259,3 +259,8 @@ private function newObject():Object
 	
 	return obj;
 }
+
+private function outPutSettingChange(e:Event):void 
+{
+	
+}

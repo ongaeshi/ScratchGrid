@@ -35,12 +35,12 @@ x;]]></mx:text>
 			</mx:TextArea>
 			
 			<mx:VBox width="100%" height="100%">
-				<mx:HBox><mx:CheckBox selected="true" id="CheckBox1" change="checkBoxChange(event)" /><mx:TextInput text="x" id="TextInput1" change="updateDataGrid()" /></mx:HBox>
-				<mx:HBox><mx:CheckBox selected="false" id="CheckBox2" change="checkBoxChange(event)" /><mx:TextInput text="y" id="TextInput2" change="updateDataGrid()" /></mx:HBox>
-				<mx:HBox><mx:CheckBox selected="false" id="CheckBox3" change="checkBoxChange(event)" /><mx:TextInput text="z" id="TextInput3" change="updateDataGrid()" /></mx:HBox>
-				<mx:HBox><mx:CheckBox selected="false" id="CheckBox4" change="checkBoxChange(event)" /><mx:TextInput text="" id="TextInput4" change="updateDataGrid()" /></mx:HBox>
-				<mx:HBox><mx:CheckBox selected="false" id="CheckBox5" change="checkBoxChange(event)" /><mx:TextInput text="" id="TextInput5" change="updateDataGrid()" /></mx:HBox>
-				<mx:HBox><mx:CheckBox selected="false" id="CheckBox6" change="checkBoxChange(event)" /><mx:TextInput text="" id="TextInput6" change="updateDataGrid()" /></mx:HBox>
+				<mx:HBox><mx:CheckBox selected="true" id="CheckBox1" change="checkBoxChange(event)" /><mx:TextInput text="x" id="TextInput1" change="updateDataGrid()" /><mx:CheckBox label="出力専用" selected="false" id="OutPutSetting1" change="outPutSettingChange(event)" /></mx:HBox>
+				<mx:HBox><mx:CheckBox selected="false" id="CheckBox2" change="checkBoxChange(event)" /><mx:TextInput text="y" id="TextInput2" change="updateDataGrid()" /><mx:CheckBox label="出力専用" selected="false" id="OutPutSetting2" change="outPutSettingChange(event)" /></mx:HBox>
+				<mx:HBox><mx:CheckBox selected="false" id="CheckBox3" change="checkBoxChange(event)" /><mx:TextInput text="z" id="TextInput3" change="updateDataGrid()" /><mx:CheckBox label="出力専用" selected="false" id="OutPutSetting3" change="outPutSettingChange(event)" /></mx:HBox>
+				<mx:HBox><mx:CheckBox selected="false" id="CheckBox4" change="checkBoxChange(event)" /><mx:TextInput text="" id="TextInput4" change="updateDataGrid()" /><mx:CheckBox label="出力専用" selected="false" id="OutPutSetting4" change="outPutSettingChange(event)" /></mx:HBox>
+				<mx:HBox><mx:CheckBox selected="false" id="CheckBox5" change="checkBoxChange(event)" /><mx:TextInput text="" id="TextInput5" change="updateDataGrid()" /><mx:CheckBox label="出力専用" selected="false" id="OutPutSetting5" change="outPutSettingChange(event)" /></mx:HBox>
+				<mx:HBox><mx:CheckBox selected="false" id="CheckBox6" change="checkBoxChange(event)" /><mx:TextInput text="" id="TextInput6" change="updateDataGrid()" /><mx:CheckBox label="出力専用" selected="false" id="OutPutSetting6" change="outPutSettingChange(event)" /></mx:HBox>
 				<mx:CheckBox selected="false" id="CheckBoxExpect" change="updateDataGrid()" label="Expect" />
 				<mx:CheckBox selected="true" id="CheckBoxAutoRun" label="Auto Run" />
 				<mx:Button label="Run (F5)" click="execScriptAndUpdate()"/>

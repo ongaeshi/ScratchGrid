@@ -21,6 +21,6 @@
   <default-frame-rate>30</default-frame-rate>
   <default-size>
     <width>640</width>
-    <height>550</height>
+    <height>600</height>
   </default-size>
 </flex-config>
