@@ -7,6 +7,7 @@ import mx.controls.dataGridClasses.DataGridColumn;
 import mx.core.ClassFactory;
 import mx.events.DataGridEvent;
 import r1.deval.D;
+import ongaeshi.trace.*;
 
 private const VARIABLE_NUM:int = 6;
 private var isUpdate_:Boolean = false;
@@ -96,7 +97,7 @@ private function variable2context(v1:Object):Object
 
 private function convertObject(v:String):Object
 {
-	return D.eval(v);
+	return D.eval("var o:Object = " + v);
 }
 
 private function execScript():void 
@@ -169,7 +170,7 @@ private function context2variable(vbl:Object, context:Object, result:Object):voi
 		if (isActiveVariableColumn(t) && !isEmptyVariableColumn(context, i)) {
 			//trace(vbl[t.dataField], "<=", Lib.to_s(context[t.dataField]));
 			
-			next = Lib.to_s(context[t.dataField]);
+			next = to_s(context[t.dataField]);
 		
 			if (vbl[t.dataField] != next)
 				vbl.SCP_attribute[i].setChangeBlink();
@@ -179,7 +180,7 @@ private function context2variable(vbl:Object, context:Object, result:Object):voi
 	}
 	
 	// Result更新
-	next = Lib.to_s(result);
+	next = to_s(result);
 
 	if (vbl.Result != next)
 		vbl.SCP_attribute[Table.columns.length - 1].setChangeBlink();
